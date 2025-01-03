@@ -1,0 +1,51 @@
+@startuml name
+class AccessDatabase.main {
+    + main(args : String[]) : void
+    + add(con : Connection, bookName : String, pubDate : String, author : String, id : int) : void
+    + update(con : Connection, bookName : String, pubDate : String, author : String, id : int) : void
+    + delete(con : Connection, bookName : String) : void
+    + retrieveBooks(con : Connection) : void
+    + viewBooks(con : Connection, bookName : String) : void
+    - mysqlDriverName : String
+    - url : String
+    - con : Connection
+    - id : int
+    - flag : boolean
+    - choice : int
+    - input : Scanner
+}
+
+
+class java.sql.Connection  {
+  
+}
+
+class java.sql.Statement {
+}
+
+class java.sql.ResultSet {
+}
+
+class java.util.Scanner {
+}
+
+AccessDatabase.main -- java.sql.Connection : uses
+AccessDatabase.main -- java.sql.Statement : creates
+AccessDatabase.main -- java.sql.ResultSet : uses
+AccessDatabase.main -- java.util.Scanner : uses
+
+
+AccessDatabase.main --> java.sql.Connection : con
+AccessDatabase.main --> java.util.Scanner : input
+
+AccessDatabase.main --> AccessDatabase.main : add()
+AccessDatabase.main --> AccessDatabase.main : update()
+AccessDatabase.main --> AccessDatabase.main : delete()
+AccessDatabase.main --> AccessDatabase.main : retrieveBooks()
+AccessDatabase.main --> AccessDatabase.main : viewBooks()
+
+java.sql.Connection <|-- AccessDatabase.main : parameter
+java.lang.String <|-- AccessDatabase.main : parameter
+java.lang.Integer <|-- AccessDatabase.main : parameter
+
+@enduml

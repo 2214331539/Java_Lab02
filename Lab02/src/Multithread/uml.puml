@@ -1,0 +1,21 @@
+@startuml "airline"
+
+' Flight class
+class Flight {
+    - int seats
+    + Flight(int seats)
+    + synchronized boolean bookSeat() throws InterruptedException
+    + synchronized void cancelSeat()
+}
+
+' Customer class
+class Customer {
+    - Flight flight
+    + Customer(Flight flight)
+    + void run()
+}
+
+' Relationship between Customer and Flight
+Customer -> Flight : "uses"
+
+@enduml

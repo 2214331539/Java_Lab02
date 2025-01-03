@@ -1,0 +1,41 @@
+@startuml t
+
+package com.example {
+
+    class Client {
+        +main(args: String[]): void
+    }
+
+    class WeatherClientHandler {
+        +channelRead(ctx: ChannelHandlerContext, msg: Object): void
+        +exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable): void
+    }
+
+    class WeatherServer {
+        +main(args: String[]): void
+    }
+
+    class WeatherServerHandler {
+        +channelRead(ctx: ChannelHandlerContext, msg: Object): void
+        +getWeatherData(city: String): String
+        +getCityCode(cityName: String): String
+    }
+
+    class StringDecoder {
+        +decode(ctx: ChannelHandlerContext, msg: Object): String
+    }
+
+    class StringEncoder {
+        +encode(ctx: ChannelHandlerContext, msg: String): Object
+    }
+
+    Client --> WeatherClientHandler
+    WeatherServer --> WeatherServerHandler
+    WeatherServerHandler --> StringDecoder
+    WeatherServerHandler --> StringEncoder
+    WeatherClientHandler --> StringDecoder
+    WeatherClientHandler --> StringEncoder
+
+}
+
+@enduml

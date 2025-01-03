@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "test",
+            "request": "launch",
+            "mainClass": "test"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "encoding": "UTF-8"
+        },
+        {
+            "type": "java",
+            "name": "Client",
+            "request": "launch",
+            "mainClass": "com.example.Client",
+            "projectName": "demo",
+            "encoding": "UTF-8"
+        },
+        {
+            "type": "java",
+            "name": "WeatherServer",
+            "request": "launch",
+            "mainClass": "com.example.WeatherServer",
+            "projectName": "demo",
+            "encoding": "UTF-8"
+        }
+    ]
+}
